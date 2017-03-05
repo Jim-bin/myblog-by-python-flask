@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+
+  <script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=30 name=title required="required" placeholder="Enter the post title">
+        <dt>Tag:
+        <dd><input type=text size=30 name=tag required="required" placeholder="Enter the post tag">
+        <dt>Text:
+        <dd><textarea name=text id="ckeditor" rows=5 cols=40 placeholder="Enter the post content"></textarea>
+        
+        <script>
+          var config = {
+            extraPlugins: 'codesnippet',
+            codeSnippet_theme: 'monokai_sublime',
+            height: 600
+          };
+
+          CKEDITOR.replace( 'ckeditor', config );
+        </script>
+
+        <dd><input type=submit value=Submit>
+
+      </dl>
+    </form>
+
+  {% endif %}
+{% endblock %}
