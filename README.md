@@ -7,7 +7,7 @@ MyBlog
 2. 增加了代码高亮的功能
 3. 使用七牛云作为图床
 
-Dependencies:
+###Dependencies:
 
 ```
 pip install flask
